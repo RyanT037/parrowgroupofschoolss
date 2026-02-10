@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parrow Group Of Schools</title>
+    <style>
+/* General Styles */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Header & Navigation */
+        
+        header {
+            background: linear-gradient(135deg, #003366 0%, #004d99 50%, #003366 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .school-logo {
+            display: none;
+        }
+        
+        .school-logo::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 80px solid transparent;
+            border-right: 80px solid transparent;
+            border-bottom: 160px solid white;
+            position: absolute;
+            left: -20px;
+            top: -40px;
+            z-index: -1;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .header-inner {
+            display: block;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ffd700;
+        }
+        /* Hero Section */
+        
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://i.imgur.com/gId4Bsc.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #003366;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1100ff;
+        }
+        /* Section Styles */
+        
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        section h2 {
+            font-size: 2.2em;
+            color: #f0f7e6;
+            margin-bottom: 20px;
+        }
+        
+        section p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.1em;
+        }
+        /* About Section */
+        
+        .about {
+            background-color: #003366;
+        }
+        
+        .story {
+            font-style: italic;
+            color: #d9534f;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        /* Mission & Vision */
+        
+        .mission {
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.75), rgba(0, 102, 153, 0.75)), url('https://media.istockphoto.com/id/1310599007/photo/young-diverse-group-of-teachers-and-pupils-standing-together-in-school-hallway.webp?a=1&b=1&s=612x612&w=0&k=20&c=bZMzKJmKfgVXCT3Q0-_N49lnPCHJLGEuRcP5O37l8to=') no-repeat center center/cover;
+            background-attachment: fixed;
+            padding: 40px 20px;
+            margin: 0;
+            font-size: 1.2em;
+            color: white;
+        }
+        
+        .mission h2 {
+            color: white;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        
+        .mission li {
+            color: white;
+            font-size: 1.1em;
+            list-style: none;
+            margin: 10px 0;
+        }
+        /* Curriculum cards for Mission section */
+        .curriculum {
+            max-width: 1100px;
+            margin: 18px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            align-items: start;
+            text-align: left;
+        }
+        .curriculum .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            padding: 16px;
+            border-radius: 12px;
+            color: #f7f7f7;
+            box-shadow: 0 10px 26px rgba(0,0,0,0.32);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .curriculum .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 44px rgba(0,0,0,0.44);
+        }
+        .curriculum .label {
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .curriculum .body {
+            color: #f1f1f1;
+            font-size: 0.98em;
+            line-height: 1.45;
+        }
+        /* Projects */
+        
+        .projects {
+            background-color: #003366;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.65), rgba(0, 102, 153, 0.65)), url('https://media.istockphoto.com/id/1770690435/photo/schoolgirl-with-raised-hand-celebrating-finishing-a-task-on-computer.webp?a=1&b=1&s=612x612&w=0&k=20&c=DDgwuY5Nv4Kqtgjhal3vxIHwcRUkFX1Oc1oNsWvtyYE=') no-repeat center center/cover;
+        }
+        
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .project {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project h3 {
+            color: #003366;
+        }
+        /* Admission Steps Triangle */
+        .projects h2,
+        .projects p {
+            color: white;
+        }
+
+        /* Fancy Join Us styling */
+        .projects .join-us {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1.6em;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #ffd700;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.55);
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+        }
+        
+        .download-form {
+            margin: 20px 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #003366;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 217, 0, 0.4);
+            border: 2px solid #ffb300;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(135deg, #ffed4e, #ffd700);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 217, 0, 0.6);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Submit documents button (Gmail + mailto fallback) */
+        .submit-docs-wrap {
+            margin: 12px 0 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        .submit-docs {
+            background: linear-gradient(135deg,#ffcf3b,#ffd700);
+            color: #003366;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid #ffb300;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.24);
+        }
+        .submit-docs:hover { transform: translateY(-3px); }
+        .mailto-fallback {
+            font-size: 0.95em;
+            color: #f7f7f7;
+            opacity: 0.95;
+            text-decoration: underline;
+        }
+
+        /* Admission Steps — professional cards */
+        .admission-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 980px;
+            margin: 30px auto 10px;
+            text-align: left;
+        }
+        .admission-steps .step {
+            background: rgba(255,255,255,0.06);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: white;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .admission-steps .step:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+        }
+        .admission-steps .step .number {
+            font-size: 1.2em;
+            font-weight: 800;
+            color: #003366;
+            background: #ffd700;
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .admission-steps .step h4 {
+            margin: 8px 0;
+            font-size:1.1em;
+            color: #ffd700;
+        }
+        .admission-steps .step p {
+            margin: 0;
+            color: #f7f7f7;
+            font-size: 0.98em;
+            line-height: 1.4;
+        }
+
+        l1, l2, l3, l4 {
+            display: block;
+            color: white;
+            font-weight: bold;
+            margin: 15px auto;
+            padding: 20px 40px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 217, 0, 0.6);
+            transition: all 0.3s ease;
+            max-width: 400px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        l1 {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        l1:hover, l2:hover, l3:hover, l4:hover {
+            background: rgba(255, 217, 0, 0.2);
+            box-shadow: 0 0 15px rgba(255, 217, 0, 0.5);
+        }
+        
+        /* Impact */
+        
+        .impact {
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.65), rgba(0, 102, 153, 0.65)), url('https://i.imgur.com/FUjO0FC.png') no-repeat center center/cover;
+            background-size: cover;
+        }
+        
+        .impact h2 {
+            color: white;
+        }
+        
+        .impact-stories {
+            max-width: 900px;
+            margin: 30px auto;
+            text-align: left;
+            padding: 20px;
+            background-color: #fff9e6;
+            border-radius: 10px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        /* Admission box - compact, classy, matches footer colors */
+        
+        .admission-box {
+            max-width: 680px;
+            margin: 20px auto;
+            padding: 0;
+            color: white;
+            font-size: 1.05em;
+            line-height: 1.7;
+            text-align: left;
+        }
+        
+        .admission-list li::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .admission-box {
+                padding: 18px;
+                max-width: 92%;
+            }
+        }
+        /* Mobile (small phones) overrides */
+        @media (max-width: 600px) {
+            header {
+                padding: 20px 12px;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+            nav a {
+                font-size: 16px;
+                padding: 6px 10px;
+            }
+            .hero {
+                padding: 60px 14px;
+                background-attachment: scroll;
+            }
+            .hero h1 { font-size: 1.8em; }
+            .hero p { font-size: 1em; }
+            .btn, .download-btn {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                padding: 12px 14px;
+                font-size: 16px;
+            }
+            section { padding: 36px 12px; }
+            section h2 { font-size: 1.6em; }
+            .admission-steps { grid-template-columns: 1fr; gap: 14px; }
+            .admission-requirements { grid-template-columns: 1fr; }
+            .features { grid-template-columns: 1fr; }
+            .curriculum { grid-template-columns: 1fr; }
+            .project { width: 100%; }
+            .impact, .gallery, .mission { background-attachment: scroll; }
+            .admission-box, .project, .card, .req, .feature {
+                padding: 12px !important;
+                border-radius: 10px !important;
+            }
+            .join-us { font-size: 1.2em; padding: 10px 14px; }
+            .download-form { margin: 14px 0; }
+        }
+        /* Admission Requirements - professional card list */
+        .admission-requirements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .admission-requirements .req {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 14px 16px;
+            border-radius: 10px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .admission-requirements .req:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.42);
+        }
+        .admission-requirements .req .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: linear-gradient(135deg,#ffd700,#ffb84d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #003366;
+            flex-shrink: 0;
+            box-shadow: inset 0 -4px 8px rgba(0,0,0,0.08);
+        }
+        .admission-requirements .req .meta {
+            display: flex;
+            flex-direction: column;
+        }
+        .admission-requirements .req .meta .title {
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 4px;
+        }
+        .admission-requirements .req .meta .desc {
+            font-size: 0.95em;
+            color: #f3f3f3;
+            opacity: 0.95;
+        }
+        /* Gallery */
+        
+        .gallery {
+            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('https://media.istockphoto.com/id/2173915109/photo/skill-competency-development-concept-up-new-ability-skill-training-for-technology-evolution.webp?a=1&b=1&s=612x612&w=0&k=20&c=rL50nnTUg3LkA5rPZOsI_TWc4G3n3xETibUmPfCWBUo=') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+        
+        .gallery h2 {
+            color: white;
+        }
+
+        /* Why Choose Us — feature cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 22px;
+            list-style: none;
+            padding: 0;
+        }
+        .feature {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.32);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .feature:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+        }
+        .feature .icon {
+            width:52px;
+            height:52px;
+            border-radius:10px;
+            background: linear-gradient(135deg,#ffd700,#ffb84d);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:800;
+            color:#003366;
+            flex-shrink:0;
+        }
+        .feature .meta .title {
+            font-weight:800;
+            color:#ffd700;
+            margin-bottom:6px;
+        }
+        .feature .meta .desc {
+            color:#f3f3f3;
+            font-size:0.98em;
+            line-height:1.45;
+        }
+        }
+        
+        .gallery .features li {
+            color: white;
+        }
+    }
+    .photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    .photo {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* Why Choose Us Section */
+    .features {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        font-size: 1.3em;
+    }
+    .features li {
+        list-style: disc;
+        color: #003366;
+        font-weight: 500;
+    }
+    /* Contact */
+    .contact {
+        background-color: #f3e8ff;
+    }
+    .contact h2 {
+        color: black;
+    }
+    .contact-info {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #003366;
+    }
+    /* WhatsApp Button */
+    .btn-whatsapp {
+        display: inline-block;
+        background-color: #25D366;
+        color: white;
+        padding: 12px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+        margin-left: 10px;
+    }
+    .btn-whatsapp:hover {
+        background-color: #20ba58;
+    }
+    .btn-group {
+        margin-top: 30px;
+    }
+    /* Footer */
+    footer {
+        background: linear-gradient(135deg, rgba(0, 51, 102, 0.85), rgba(0, 102, 153, 0.85)), url('https://media.istockphoto.com/id/2200112190/photo/black-schoolboy-e-learning-over-laptop-with-his-friends-in-the-classroom.webp?a=1&b=1&s=612x612&w=0&k=20&c=sBEC-V1-MPNTPpjddfs7E9xa1kYHhen0w9K2DUk15d4=') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 0.9em;
+        position: relative;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    }
+    footer p {
+        margin: 8px 0;
+        font-weight: 500;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+    footer p:last-child {
+        font-size: 0.8em;
+        opacity: 0.9;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero h1 {
+        font-size: 2em;
+    }
+    .project {
+        width: 100%;
+        max-width: 350px;
+    }
+    .impact-stories {
+        font-size: 1em;
+        padding: 15px;
+    }
+    .school-logo {
+        width: 48px;
+        height: 48px;
+        left: 10px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">Parrow Group Of Schools</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#mission">Curriculum</a></li>
+                    <li><a href="#projects">Admission</a></li>
+                    <li><a href="#gallery">Acknowledgement</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero " id="home">
+        <h1>Education is Light</h1>
+        <p>To be a beacon of learning that enlightens minds, equips practical skills, and transforms the world.</p>
+        <a href="#projects" class="btn ">Enrol Now</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about " id="about">
+        <div class="container ">
+            <h2>About Us</h2>
+            <div class="mission ">
+                <strong>Mission:</strong> To provide holistic and inclusive education that enlightens minds, builds strong character, and equips learners with the knowledge, practical skills, and Christian values to serve society with integrity and compassion.
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission " id="mission">
+        <div class="container">
+            <h2>Holistic Heritage‑Based Curriculum (HBC)</h2>
+            <p class="lead">Our HBC blends strong academic foundations with cultural heritage and Christian values, preparing learners for life with confidence, competence and character.</p>
+
+            <div class="curriculum">
+                <div class="card">
+                    <div class="label">Early Childhood Development</div>
+                    <div class="body">A play‑based, language‑rich foundation that nurtures curiosity, social skills and early literacy.</div>
+                </div>
+
+                <div class="card">
+                    <div class="label">Primary(Grades 1–7)</div>
+                    <div class="body">A balanced core curriculum emphasizing literacy, numeracy and critical thinking to build lasting academic confidence.</div>
+                </div>
+
+                <div class="card">
+                    <div class="label">Senior Support (Form 1–6)</div>
+                    <div class="body">Supplementary lessons and targeted exam preparation with a focus on Science, Mathematics, Language Arts and Commercial subjects.</div>
+                </div>
+
+                <div class="card">
+                    <div class="label">Heritage & Values Integration</div>
+                    <div class="body">Intentional incorporation of local heritage and Christian principles to foster character, citizenship and cultural pride.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects " id="projects">
+
+        <h2>Admission Steps</h2>
+        <p>We offer quality education at an affordable fee. Registration for 2026 in Progress!</p>
+        <p class="join-us">Join Us Now!</p>
+        
+        <div class="download-form">
+            <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" rel="noopener" class="download-btn">
+                📥 Download Application Form
+            </a>
+        </div>
+
+        <div class="inquiry-cta" style="margin:12px 0;">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Admission%20Inquiry&body=Hello%20Parrow%20Group%20of%20Schools%2C%0A%0AI%20have%20an%20inquiry%20about%20admissions%20for%20" target="_blank" rel="noopener" class="btn">✉️ Inquiry</a>
+        </div>
+
+        <div class="submit-docs-wrap">
+            <a class="submit-docs" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Application%20Documents%20-%20Parrow&body=Please%20attach%20your%20application%20PDFs%20(Completed%20Form%2C%20Birth%20Certificate%2C%20Transfer%20Letter%2C%20Reference%20if%20available).%0A%0AApplicant%20Name%3A%20%0AGrade%20Applying%20For%3A%20%0AContact%20Phone%3A%20">Submit Documents by Email (Gmail)</a>
+            <a class="mailto-fallback" href="mailto:wilson202318@gmail.com?subject=Application%20Documents%20-%20Parrow&body=Please%20attach%20your%20application%20PDFs%20(Completed%20Form%2C%20Birth%20Certificate%2C%20Transfer%20Letter%2C%20Reference%20if%20available).%0A%0AApplicant%20Name%3A%20%0AGrade%20Applying%20For%3A%20%0AContact%20Phone%3A%20">Or open your email client</a>
+        </div>
+
+        <div class="admission-steps">
+            <div class="step">
+                <div class="number">1</div>
+                <h4>Complete Application Form</h4>
+                <p>Download, fill and sign the application form. Ensure all fields are accurate.</p>
+            </div>
+            <div class="step">
+                <div class="number">2</div>
+                <h4>Submit Required Documents</h4>
+                <p>Provide copies of birth certificate, previous school reports, and a tranfer letter.</p>
+            </div>
+            <div class="step">
+                <div class="number">3</div>
+                <h4>Pay Admission Fee</h4>
+                <p>Pay the non-refundable admission fee via bank transfer or at the school's accounts office.</p>
+            </div>
+            <div class="step">
+                <div class="number">4</div>
+                <h4>Await Confirmation</h4>
+                <p>We will review your application and notify you of the admission status via email.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact " id="impact ">
+        <div class="container ">
+            <h2>Admission Requirements</h2>
+            <div class="admission-box ">
+                <div class="admission-requirements">
+                    <div class="req">
+                        <div class="icon">A</div>
+                        <div class="meta">
+                            <div class="title">Completed Application Form</div>
+                            <div class="desc">Fully completed, signed and dated application form (downloadable above).</div>
+                        </div>
+                    </div>
+                    <div class="req">
+                        <div class="icon">B</div>
+                        <div class="meta">
+                            <div class="title">Birth Certificate</div>
+                            <div class="desc">Provide a copy of the birth certificate for verification purposes.</div>
+                        </div>
+                    </div>
+                    <div class="req">
+                        <div class="icon">T</div>
+                        <div class="meta">
+                            <div class="title">Transfer Letter</div>
+                            <div class="desc">Original transfer letter from the previous school (where applicable).</div>
+                        </div>
+                    </div>
+                    <div class="req">
+                        <div class="icon">R</div>
+                        <div class="meta">
+                            <div class="title">Reference Letter (Optional)</div>
+                            <div class="desc">A brief reference from a teacher or guardian to support the application.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery " id="gallery">
+
+        <div class="container ">
+            <h2>Why Choose Us?</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="icon">E</div>
+                    <div class="meta">
+                        <div class="title">Expert, Certified Educators</div>
+                        <div class="desc">Our Institution consists of certified professionals who combine academic rigour with pastoral care to inspire confident learners.</div>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="icon">I</div>
+                    <div class="meta">
+                        <div class="title">Innovative, Learner-Centred Approach</div>
+                        <div class="desc">Hands-on learning, modern resources and small class sizes deliver personalised pathways to achievement.</div>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="icon">H</div>
+                    <div class="meta">
+                        <div class="title">Holistic Development & Values</div>
+                        <div class="desc">Balanced focus on intellectual, creative, physical and spiritual growth founded on Christian values.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="photos ">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact " id="contact">
+        <div class="container ">
+            <h2>Contact Us</h2>
+
+            <div class="contact-info ">
+                <p>📌 <strong>Location:</strong> Chiwaridzo Campus Bindura</p>
+                <p>📞 <strong>Phone:</strong> +263 781 424 352 / +263 711 623 590</p>
+                <p>📧 <strong>Email:</strong> wilson202318@gmail.com</p>
+                <p> <strong>Owned by:</strong> Parrow Group Of Schools | Since 2022</p>
+            </div>
+            <div class="btn-group ">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Inquiry%20from%20Parrow%20Group%20of%20Schools&body=Hello%20Parrow%20Group%20of%20Schools " target="_blank " class="btn ">📧 Send Us an Email</a>
+                <a href="https://wa.me/263777260200?text=Hello%20Parrow%20Group%20Of%20Schools%2C%20I%20would%20like%20to%20inquire%20about%20enrollment. " target="_blank " class="btn-whatsapp ">💬 WhatsApp Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container ">
+            <p>&copy; 2026 Parrow Group Of Schools. All rights reserved.</p>
+            <p>EDUCATION IS LIGHT</p>
+            <p>Designed by Will Digitals(+263 78 597 4025)</p>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

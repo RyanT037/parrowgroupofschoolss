@@ -2,9 +2,23 @@
 <html lang="en">
 
 <head>
+    <!-- Meta Tags for SEO and Accessibility -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parrow Group Of Schools</title>
+    <meta name="description" content="Parrow Group of Schools provides quality holistic education in Bindura. Offering ECD, Primary, and Secondary education with Christian values and heritage-based curriculum." />
+    <meta name="keywords" content="schools, education, Bindura, Zimbabwe, ECD, primary, secondary, admissions, curriculum, Christian values" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta property="og:title" content="Parrow Group Of Schools - Quality Education in Bindura, Zimbabwe" />
+    <meta property="og:description" content="Discover holistic heritage-based education with certified educators. Enroll today at Parrow Group of Schools." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://parrowschools.co.zw/" />
+    <meta property="og:image" content="https://i.imgur.com/gId4Bsc.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Parrow Group Of Schools - Quality Education in Bindura" />
+    <meta name="twitter:description" content="Holistic heritage-based education with expert certified educators and Christian values." />
+    <link rel="canonical" href="https://parrowschools.co.zw/" />
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+    <title>Parrow Group Of Schools - Quality Holistic Education in Bindura, Zimbabwe</title>
     <style>
 /* General Styles */
         
@@ -59,6 +73,73 @@
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 5px;
+            margin: 0;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0;
+            position: relative;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 18px;
+        }
+
+        .nav-link:hover {
+            color: #ffd700;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1000;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
         
         .header-inner {
@@ -202,6 +283,15 @@
             color: #ffd700;
             margin-bottom: 8px;
             font-size: 1.05em;
+            margin: 0 0 8px 0;
+            display: block;
+        }
+        .curriculum h3 {
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+            margin: 0 0 8px 0;
         }
         .curriculum .body {
             color: #f1f1f1;
@@ -343,7 +433,7 @@
             border-radius: 8px;
             margin-bottom: 10px;
         }
-        .admission-steps .step h4 {
+        .admission-steps .step h3 {
             margin: 8px 0;
             font-size:1.1em;
             color: #ffd700;
@@ -355,7 +445,7 @@
             line-height: 1.4;
         }
 
-        l1, l2, l3, l4 {
+        .step-item {
             display: block;
             color: white;
             font-weight: bold;
@@ -370,11 +460,11 @@
             text-align: center;
         }
         
-        l1 {
+        .step-item:first-child {
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
-        l1:hover, l2:hover, l3:hover, l4:hover {
+        .step-item:hover {
             background: rgba(255, 217, 0, 0.2);
             box-shadow: 0 0 15px rgba(255, 217, 0, 0.5);
         }
@@ -519,6 +609,7 @@
             font-weight: 700;
             color: #ffd700;
             margin-bottom: 4px;
+            margin: 0 0 4px 0;
         }
         .admission-requirements .req .meta .desc {
             font-size: 0.95em;
@@ -576,18 +667,19 @@
             font-weight:800;
             color:#ffd700;
             margin-bottom:6px;
+            margin: 0 0 6px 0;
         }
         .feature .meta .desc {
             color:#f3f3f3;
             font-size:0.98em;
             line-height:1.45;
         }
-        }
+        
         
         .gallery .features li {
             color: white;
         }
-    }
+    
     .photos {
         display: flex;
         flex-wrap: wrap;
@@ -626,6 +718,11 @@
     .contact-info {
         margin-top: 20px;
         font-size: 1.2em;
+        color: #003366;
+    }
+
+    .contact-info p a{
+        text-decoration: none;
         color: #003366;
     }
     /* WhatsApp Button */
@@ -669,10 +766,48 @@
         padding-top: 15px;
         border-top: 1px solid rgba(255, 255, 255, 0.3);
     }
-}
+
+    footer p a{
+        text-decoration: none;
+        color: white;
+    }
+
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 120px;
+        left: 0;
+        flex-direction: column;
+        background: linear-gradient(135deg, #003366 0%, #004d99 50%, #003366 100%);
+        width: 100%;
+        text-align: center;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        max-height: 400px;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
     nav ul {
         flex-direction: column;
         gap: 10px;
@@ -695,189 +830,216 @@
     }
 }
     </style>
+    <!-- Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Parrow Group of Schools",
+      "description": "Quality holistic education providing ECD, Primary, and Secondary education with Christian values and heritage-based curriculum in Bindura, Zimbabwe",
+      "url": "https://parrowschools.eco.zw",
+      "logo": "https://i.imgur.com/gId4Bsc.png",
+      "image": "https://i.imgur.com/gId4Bsc.png",
+      "telephone": "+263781424352",
+      "email": "wilson202318@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7094 Chiwaridzo Campus",
+        "addressLocality": "Bindura",
+        "addressCountry": "ZW"
+      },
+      "sameAs": [],
+      "foundingDate": "2022",
+      "areaServed": "Bindura, Zimbabwe"
+    }
+    </script>
 </head>
 
 <body>
 
     <!-- Header & Navigation -->
-    <header>
+    <header role="banner">
         <div class="container">
-            <div class="header-inner">
-                <div class="logo">Parrow Group Of Schools</div>
+            <div class="navbar">
+                <div class="logo">
+                    <h1>Parrow Group of Schools</h1>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#mission" class="nav-link">Curriculum</a>
+                    <a href="#projects" class="nav-link">Admission</a>
+                    <a href="#gallery" class="nav-link">Acknowledgement</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#mission">Curriculum</a></li>
-                    <li><a href="#projects">Admission</a></li>
-                    <li><a href="#gallery">Acknowledgement</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero " id="home">
+    <section class="hero" id="home">
         <h1>Education is Light</h1>
         <p>To be a beacon of learning that enlightens minds, equips practical skills, and transforms the world.</p>
-        <a href="#projects" class="btn ">Enrol Now</a>
+        <a href="#projects" class="btn" aria-label="Navigate to admission section">Enrol Now</a>
     </section>
 
     <!-- About Section -->
-    <section class="about " id="about">
-        <div class="container ">
+    <section class="about" id="about">
+        <div class="container">
             <h2>About Us</h2>
-            <div class="mission ">
+            <article class="mission">
                 <strong>Mission:</strong> To provide holistic and inclusive education that enlightens minds, builds strong character, and equips learners with the knowledge, practical skills, and Christian values to serve society with integrity and compassion.
-            </div>
+            </article>
         </div>
     </section>
 
     <!-- Mission & Vision -->
-    <section class="mission " id="mission">
+    <section class="mission" id="mission">
         <div class="container">
-            <h2>Holistic Heritage‑Based Curriculum (HBC)</h2>
+            <h2>Holistic Heritage-Based Curriculum (HBC)</h2>
             <p class="lead">Our HBC blends strong academic foundations with cultural heritage and Christian values, preparing learners for life with confidence, competence and character.</p>
 
-            <div class="curriculum">
-                <div class="card">
-                    <div class="label">Early Childhood Development</div>
-                    <div class="body">A play‑based, language‑rich foundation that nurtures curiosity, social skills and early literacy.</div>
-                </div>
+            <div class="curriculum" role="list">
+                <article class="card" role="listitem">
+                    <h3 class="label">Early Childhood Development</h3>
+                    <p class="body">A play-based, language-rich foundation that nurtures curiosity, social skills and early literacy.</p>
+                </article>
 
-                <div class="card">
-                    <div class="label">Primary(Grades 1–7)</div>
-                    <div class="body">A balanced core curriculum emphasizing literacy, numeracy and critical thinking to build lasting academic confidence.</div>
-                </div>
+                <article class="card" role="listitem">
+                    <h3 class="label">Primary (Grades 1–7)</h3>
+                    <p class="body">A balanced core curriculum emphasizing literacy, numeracy and critical thinking to build lasting academic confidence.</p>
+                </article>
 
-                <div class="card">
-                    <div class="label">Senior Support (Form 1–6)</div>
-                    <div class="body">Supplementary lessons and targeted exam preparation with a focus on Science, Mathematics, Language Arts and Commercial subjects.</div>
-                </div>
+                <article class="card" role="listitem">
+                    <h3 class="label">Senior Support (Form 1–6)</h3>
+                    <p class="body">Supplementary lessons and targeted exam preparation with a focus on Science, Mathematics, Language Arts and Commercial subjects.</p>
+                </article>
 
-                <div class="card">
-                    <div class="label">Heritage & Values Integration</div>
-                    <div class="body">Intentional incorporation of local heritage and Christian principles to foster character, citizenship and cultural pride.</div>
-                </div>
+                <article class="card" role="listitem">
+                    <h3 class="label">Heritage & Values Integration</h3>
+                    <p class="body">Intentional incorporation of local heritage and Christian principles to foster character, citizenship and cultural pride.</p>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="projects " id="projects">
+    <section class="projects" id="projects">
 
         <h2>Admission Steps</h2>
         <p>We offer quality education at an affordable fee. Registration for 2026 in Progress!</p>
         <p class="join-us">Join Us Now!</p>
         
         <div class="download-form">
-            <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" rel="noopener" class="download-btn">
+            <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" rel="noopener" class="download-btn" aria-label="Download admission application form">
                 📥 Download Application Form
             </a>
         </div>
 
         <div class="inquiry-cta" style="margin:12px 0;">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Admission%20Inquiry&body=Hello%20Parrow%20Group%20of%20Schools%2C%0A%0AI%20have%20an%20inquiry%20about%20admissions%20for%20" target="_blank" rel="noopener" class="btn">✉️ Inquiry</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Admission%20Inquiry&body=Hello%20Parrow%20Group%20of%20Schools%2C%0A%0AI%20have%20an%20inquiry%20about%20admissions%20for%20" target="_blank" rel="noopener" class="btn" aria-label="Send admission inquiry email">✉️ Inquiry</a>
         </div>
 
         <div class="submit-docs-wrap">
-            <a class="submit-docs" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Application%20Documents%20-%20Parrow&body=Please%20attach%20your%20application%20PDFs%20(Completed%20Form%2C%20Birth%20Certificate%2C%20Transfer%20Letter%2C%20Reference%20if%20available).%0A%0AApplicant%20Name%3A%20%0AGrade%20Applying%20For%3A%20%0AContact%20Phone%3A%20">Submit Documents by Email (Gmail)</a>
-            <a class="mailto-fallback" href="mailto:wilson202318@gmail.com?subject=Application%20Documents%20-%20Parrow&body=Please%20attach%20your%20application%20PDFs%20(Completed%20Form%2C%20Birth%20Certificate%2C%20Transfer%20Letter%2C%20Reference%20if%20available).%0A%0AApplicant%20Name%3A%20%0AGrade%20Applying%20For%3A%20%0AContact%20Phone%3A%20">Or open your email client</a>
+            <a class="submit-docs" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Application%20Documents%20-%20Parrow&body=Please%20attach%20your%20application%20PDFs%20(Completed%20Form%2C%20Birth%20Certificate%2C%20Transfer%20Letter%2C%20Reference%20if%20available).%0A%0AApplicant%20Name%3A%20%0AGrade%20Applying%20For%3A%20%0AContact%20Phone%3A%20" aria-label="Submit application documents via Gmail">Submit Documents by Email (Gmail)</a>
+            <a class="mailto-fallback" href="mailto:wilson202318@gmail.com?subject=Application%20Documents%20-%20Parrow&body=Please%20attach%20your%20application%20PDFs%20(Completed%20Form%2C%20Birth%20Certificate%2C%20Transfer%20Letter%2C%20Reference%20if%20available).%0A%0AApplicant%20Name%3A%20%0AGrade%20Applying%20For%3A%20%0AContact%20Phone%3A%20" aria-label="Open email client to submit application documents">Or open your email client</a>
         </div>
 
         <div class="admission-steps">
-            <div class="step">
-                <div class="number">1</div>
-                <h4>Complete Application Form</h4>
+            <article class="step">
+                <div class="number" aria-label="Step 1">1</div>
+                <h3>Complete Application Form</h3>
                 <p>Download, fill and sign the application form. Ensure all fields are accurate.</p>
-            </div>
-            <div class="step">
-                <div class="number">2</div>
-                <h4>Submit Required Documents</h4>
-                <p>Provide copies of birth certificate, previous school reports, and a tranfer letter.</p>
-            </div>
-            <div class="step">
-                <div class="number">3</div>
-                <h4>Pay Admission Fee</h4>
+            </article>
+            <article class="step">
+                <div class="number" aria-label="Step 2">2</div>
+                <h3>Submit Required Documents</h3>
+                <p>Provide copies of birth certificate, previous school reports, and a transfer letter.</p>
+            </article>
+            <article class="step">
+                <div class="number" aria-label="Step 3">3</div>
+                <h3>Pay Admission Fee</h3>
                 <p>Pay the non-refundable admission fee via bank transfer or at the school's accounts office.</p>
-            </div>
-            <div class="step">
-                <div class="number">4</div>
-                <h4>Await Confirmation</h4>
+            </article>
+            <article class="step">
+                <div class="number" aria-label="Step 4">4</div>
+                <h3>Await Confirmation</h3>
                 <p>We will review your application and notify you of the admission status via email.</p>
-            </div>
+            </article>
         </div>
 
     </section>
 
     <!-- Impact Section -->
-    <section class="impact " id="impact ">
-        <div class="container ">
+    <section class="impact" id="impact">
+        <div class="container">
             <h2>Admission Requirements</h2>
-            <div class="admission-box ">
-                <div class="admission-requirements">
-                    <div class="req">
-                        <div class="icon">A</div>
+            <div class="admission-box">
+                <div class="admission-requirements" role="list">
+                    <article class="req" role="listitem">
+                        <div class="icon" aria-label="Completed Application Form">A</div>
                         <div class="meta">
-                            <div class="title">Completed Application Form</div>
-                            <div class="desc">Fully completed, signed and dated application form (downloadable above).</div>
+                            <h3 class="title">Completed Application Form</h3>
+                            <p class="desc">Fully completed, signed and dated application form (downloadable above).</p>
                         </div>
-                    </div>
-                    <div class="req">
-                        <div class="icon">B</div>
+                    </article>
+                    <article class="req" role="listitem">
+                        <div class="icon" aria-label="Birth Certificate">B</div>
                         <div class="meta">
-                            <div class="title">Birth Certificate</div>
-                            <div class="desc">Provide a copy of the birth certificate for verification purposes.</div>
+                            <h3 class="title">Birth Certificate</h3>
+                            <p class="desc">Provide a copy of the birth certificate for verification purposes.</p>
                         </div>
-                    </div>
-                    <div class="req">
-                        <div class="icon">T</div>
+                    </article>
+                    <article class="req" role="listitem">
+                        <div class="icon" aria-label="Transfer Letter">T</div>
                         <div class="meta">
-                            <div class="title">Transfer Letter</div>
-                            <div class="desc">Original transfer letter from the previous school (where applicable).</div>
+                            <h3 class="title">Transfer Letter</h3>
+                            <p class="desc">Original transfer letter from the previous school (where applicable).</p>
                         </div>
-                    </div>
-                    <div class="req">
-                        <div class="icon">R</div>
+                    </article>
+                    <article class="req" role="listitem">
+                        <div class="icon" aria-label="Reference Letter Optional">R</div>
                         <div class="meta">
-                            <div class="title">Reference Letter (Optional)</div>
-                            <div class="desc">A brief reference from a teacher or guardian to support the application.</div>
+                            <h3 class="title">Reference Letter (Optional)</h3>
+                            <p class="desc">A brief reference from a teacher or guardian to support the application.</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery " id="gallery">
-
-        <div class="container ">
+    <section class="gallery" id="gallery">
+        <div class="container">
             <h2>Why Choose Us?</h2>
-            <div class="features">
-                <div class="feature">
-                    <div class="icon">E</div>
+            <div class="features" role="list">
+                <article class="feature" role="listitem">
+                    <div class="icon" aria-label="Expert Certified Educators">E</div>
                     <div class="meta">
-                        <div class="title">Expert, Certified Educators</div>
-                        <div class="desc">Our Institution consists of certified professionals who combine academic rigour with pastoral care to inspire confident learners.</div>
+                        <h3 class="title">Expert, Certified Educators</h3>
+                        <p class="desc">Our Institution consists of certified professionals who combine academic rigour with pastoral care to inspire confident learners.</p>
                     </div>
-                </div>
-                <div class="feature">
-                    <div class="icon">I</div>
+                </article>
+                <article class="feature" role="listitem">
+                    <div class="icon" aria-label="Innovative Learner-Centred Approach">I</div>
                     <div class="meta">
-                        <div class="title">Innovative, Learner-Centred Approach</div>
-                        <div class="desc">Hands-on learning, modern resources and small class sizes deliver personalised pathways to achievement.</div>
+                        <h3 class="title">Innovative, Learner-Centred Approach</h3>
+                        <p class="desc">Hands-on learning, modern resources and small class sizes deliver personalised pathways to achievement.</p>
                     </div>
-                </div>
-                <div class="feature">
-                    <div class="icon">H</div>
+                </article>
+                <article class="feature" role="listitem">
+                    <div class="icon" aria-label="Holistic Development and Values">H</div>
                     <div class="meta">
-                        <div class="title">Holistic Development & Values</div>
-                        <div class="desc">Balanced focus on intellectual, creative, physical and spiritual growth founded on Christian values.</div>
+                        <h3 class="title">Holistic Development & Values</h3>
+                        <p class="desc">Balanced focus on intellectual, creative, physical and spiritual growth founded on Christian values.</p>
                     </div>
-                </div>
+                </article>
             </div>
             <div class="photos ">
 
@@ -886,32 +1048,59 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact " id="contact">
-        <div class="container ">
+    <section class="contact" id="contact">
+        <div class="container">
             <h2>Contact Us</h2>
 
-            <div class="contact-info ">
-                <p>📌 <strong>Location:</strong> Chiwaridzo Campus Bindura</p>
-                <p>📞 <strong>Phone:</strong> +263 781 424 352 / +263 711 623 590</p>
-                <p>📧 <strong>Email:</strong> wilson202318@gmail.com</p>
-                <p> <strong>Owned by:</strong> Parrow Group Of Schools | Since 2022</p>
-            </div>
-            <div class="btn-group ">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Inquiry%20from%20Parrow%20Group%20of%20Schools&body=Hello%20Parrow%20Group%20of%20Schools " target="_blank " class="btn ">📧 Send Us an Email</a>
-                <a href="https://wa.me/263777260200?text=Hello%20Parrow%20Group%20Of%20Schools%2C%20I%20would%20like%20to%20inquire%20about%20enrollment. " target="_blank " class="btn-whatsapp ">💬 WhatsApp Us</a>
+            <address class="contact-info">
+                <p>📌 <strong>Location:</strong> Chiwaridzo Campus, Bindura</p>
+                <p>📞 <strong>Phone:</strong> <a href="tel:+263781424352">+263 781 424 352</a> / <a href="tel:+263711623590">+263 711 623 590</a></p>
+                <p>📧 <strong>Email:</strong> <a href="mailto:wilson202318@gmail.com">wilson202318@gmail.com</a></p>
+                <p><strong>Owned by:</strong> Parrow Group of Schools | Since 2022</p>
+            </address>
+            <div class="btn-group">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wilson202318@gmail.com&su=Inquiry%20from%20Parrow%20Group%20of%20Schools&body=Hello%20Parrow%20Group%20of%20Schools " target="_blank" rel="noopener" class="btn" aria-label="Send an email inquiry">📧 Send Us an Email</a>
+                <a href="https://wa.me/263777260200?text=Hello%20Parrow%20Group%20Of%20Schools%2C%20I%20would%20like%20to%20inquire%20about%20enrollment. " target="_blank" rel="noopener" class="btn-whatsapp" aria-label="Contact us via WhatsApp">💬 WhatsApp Us</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container ">
-            <p>&copy; 2026 Parrow Group Of Schools. All rights reserved.</p>
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Parrow Group of Schools. All rights reserved.</p>
             <p>EDUCATION IS LIGHT</p>
-            <p>Designed by Will Digitals(+263 78 597 4025)</p>
-
+            <p>Designed by <a href="tel:+263785974025">Will Digitals (+263 78 597 4025)</a></p>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Toggle menu on hamburger click
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 
 </body>
 
